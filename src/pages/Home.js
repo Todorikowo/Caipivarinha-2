@@ -13,10 +13,10 @@ function Home(){
             <div className="headerContainer">
                 {/* frase de efeito */}
                 <p>Porque a vida é muito curta pra beber só um copo.</p>
-                <Link to="https://carrinho-orcin.vercel.app">
+                <Link to={"/carrinho"}>
                 {/* outro botão do carrinho */}
                     <button>PEÇA AQUI</button>
-                </Link>
+                </Link>  
             </div>
         </div>
     )
