@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/About.css";
 import caip from "../assets/caip.png";
-import BannerImage from "../assets/pubbg.jpg"
+import BannerImage from "../assets/barbg.jpg"
 
 // função sobre
 function About(){
