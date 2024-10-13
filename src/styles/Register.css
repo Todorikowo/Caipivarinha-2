@@ -1,0 +1,9 @@
+.register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(../assets/pubbg.jpg);
+    background-size: cover;
+    background-position: center;
+}

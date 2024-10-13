@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
+import { IoPerson } from "react-icons/io5";
 import "../styles/Navbar.css";
 
 // função navbar
@@ -24,6 +25,7 @@ function Navbar(){
                     <Link to={"/"}>Home</Link>
                 <Link to={"/carrinho"}>Cardápio</Link>
                 <Link to={"/sobre"}>Sobre Nós</Link>
+                <Link to={"/conta"}><IoPerson /></Link>
                 </div>
             </div>
             {/* links */}
@@ -31,6 +33,7 @@ function Navbar(){
                 <Link to={"/"}>Home</Link>
                 <Link to={"/carrinho"}>Cardápio</Link>
                 <Link to={"/sobre"}>Sobre Nós</Link>
+                <Link to={"/conta"}><IoPerson /></Link>
                 {/* abre e fecha o menu cel */}
                 <button onClick={toggleNavbar}><FaBars /></button>
             </div>
