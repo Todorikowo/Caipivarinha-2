@@ -23,7 +23,7 @@ const Registro = () => {
 
     return(
         // continer
-        <div className="container">
+        <div className="container-login">
             <form onSubmit={handleSubmit}>
                 <h1>E quem é você?</h1>
                 {/* cpf */}

@@ -9,7 +9,7 @@ function Header() {
   return(
     <header className="header">
       {/* itens */}
-      <div className="container">
+      <div className="container-itens">
       {/* barra de pesquisa */}
         <SearchBar />
         {/* botão do carrinho */}

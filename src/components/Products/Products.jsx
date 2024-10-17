@@ -17,7 +17,7 @@ function Products(){
       setProducts(response);
     });
 
-  }, []);
+  }, [setProducts]);
 
   //armazena os produtos e as informações em map para exportar
   return(

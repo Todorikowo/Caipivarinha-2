@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
-import { IoPerson } from "react-icons/io5";
+import { IoPersonCircleOutline } from "react-icons/io5";
 import "../styles/Navbar.css";
 
 // função navbar
@@ -19,13 +19,13 @@ function Navbar(){
             {/* nome da classe e id para abrir e fechar o menu cel */}
             <div className="leftSide" id={openLinks ? "open" : "close"}>
                 {/* logo */}
-                <img src={logo} alt="logo"/>
+                <Link to="/"><img src={logo} alt="logo"/></Link>
                 <div className="hiddenLinks">
                     {/* links do menu cel */}
                     <Link to={"/"}>Home</Link>
                 <Link to={"/carrinho"}>Cardápio</Link>
                 <Link to={"/sobre"}>Sobre Nós</Link>
-                <Link to={"/conta"}><IoPerson /></Link>
+                <Link to={"/conta"}><IoPersonCircleOutline /></Link>
                 </div>
             </div>
             {/* links */}
@@ -33,7 +33,7 @@ function Navbar(){
                 <Link to={"/"}>Home</Link>
                 <Link to={"/carrinho"}>Cardápio</Link>
                 <Link to={"/sobre"}>Sobre Nós</Link>
-                <Link to={"/conta"}><IoPerson /></Link>
+                <Link to={"/conta"}><IoPersonCircleOutline /></Link>
                 {/* abre e fecha o menu cel */}
                 <button onClick={toggleNavbar}><FaBars /></button>
             </div>

@@ -12,7 +12,7 @@ function CartButton() {
   return(
     <button type="button" className="cart__button" onClick={() => setIsCartVisible(!isCartVisible)}>
       <LiaShoppingCartSolid />
-      {/* mostra a quantidade de itens no carrinho -- WIP */}
+      {/* mostra a quantidade de itens no carrinho*/}
       {cartItems.length > 0 && <span className="cart-status">{cartItems.length}</span>}
     </button>
   );

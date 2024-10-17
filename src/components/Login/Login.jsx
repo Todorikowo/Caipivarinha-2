@@ -19,7 +19,7 @@ const Login = () => {
 
     return(
         //container
-        <div className="container">
+        <div className="container-login">
             {/* formulário */}
             <form onSubmit={handleSubmit}>
                 <h1>Você por aqui?</h1>
