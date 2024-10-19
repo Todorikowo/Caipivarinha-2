@@ -11,14 +11,14 @@ const Registro = () => {
     // constantes
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");  
+        const [date, setDate] = useState("");
     const [email, setEmail] = useState(""); 
-    const [CPF, setCPF] = useState("00000000000"); 
 
     // constante envio
     const handleSubmit = () => {
         // eslint-disable-next-line no-restricted-globals
         event.preventDefault();
-        alert("Enviando os dados:" + username + " - " + password + " - " + email + " - " + CPF);
+        alert("Enviando os dados:" + username + " - " + password + " - " + email + " - " + date);
     }; 
 
     return(
@@ -26,14 +26,14 @@ const Registro = () => {
         <div className="container-login">
             <form onSubmit={handleSubmit}>
                 <h1>E quem é você?</h1>
-                {/* cpf */}
-                <div className="input-field">
-                    <input type="text" id="CPF" placeholder="CPF:" onChange={(e) => setCPF(e.target.value)} required/>
-                    <GiJusticeStar className="icon"/>
-                </div>
                 {/* nome */}
                 <div className="input-field">
                     <input type="text" placeholder="Nome:" onChange={(e) => setUsername(e.target.value)} required/>
+                    <FaPerson className="icon"/>
+                </div>
+                {/* data de nascimento */}
+                <div className="input-field">
+                    <input type="date" placeholder="Data de nascimento:" onChange={(e) => setDate(e.target.value)} required/>
                     <FaPerson className="icon"/>
                 </div>
                 {/* email */}
@@ -44,6 +44,11 @@ const Registro = () => {
                 {/* senha */}
                 <div className="input-field">
                     <input type="password" placeholder="Senha:" onChange={(e) => setPassword(e.target.value)} required/>
+                    <FaLock className="icon"/>
+                </div>
+                {/* confirma a senha */}
+                <div className="input-field">
+                    <input type="password" placeholder="Confirme a senha:" onChange={(e) => setPassword(e.target.value)} required/>
                     <FaLock className="icon"/>
                 </div>
                     {/* botão cadastro */}
