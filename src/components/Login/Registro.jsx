@@ -3,8 +3,7 @@ import React from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import {FaUser, FaLock} from "react-icons/fa";
-import { GiJusticeStar } from "react-icons/gi";
+import {FaUser, FaLock, FaCalendarAlt} from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 const Registro = () => {
 
@@ -34,7 +33,7 @@ const Registro = () => {
                 {/* data de nascimento */}
                 <div className="input-field">
                     <input type="date" placeholder="Data de nascimento:" onChange={(e) => setDate(e.target.value)} required/>
-                    <FaPerson className="icon"/>
+                    <FaCalendarAlt className="icon"/>
                 </div>
                 {/* email */}
                 <div className="input-field">
