@@ -40,6 +40,29 @@ app.post('/api/register', (req, res) => {
     });
 });
 
+// API endpoint to login a user
+app.post('/api/login', (req, res) => {
+    const { username, password } = req.body;
+    
+    const query = 'SELECT * FROM users WHERE username = ? AND password = ?';
+    
+    db.query(query, [username, password], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send('Error occurred while logging in.');
+        }
+
+        if (results.length > 0) {
+            // User found, login successful
+            res.status(200).send('Login successful!');
+        } else {
+            // User not found
+            res.status(401).send('Invalid username or password.');
+        }
+    });
+});
+
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);

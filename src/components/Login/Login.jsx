@@ -1,44 +1,77 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import "./Login.css"
-import { useState } from "react";
-import {FaUser, FaLock} from "react-icons/fa";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import "./Login.css";
+import { FaUser, FaLock } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+
 const Login = () => {
-
-    //constantes
+    // State variables
     const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");  
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const navigate = useNavigate();
 
-    //constante de envio de formulário
-    const handleSubmit = () => {
-        // eslint-disable-next-line no-restricted-globals
+    // Handle form submission
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        alert("Enviando os dados:" + username + " - " + password);
+
+        try {
+            const response = await fetch('http://localhost:5000/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
+
+            if (response.ok) {
+                alert('Login successful!');
+                navigate('/', { replace: true }); // Redirect to the account page
+            } else {
+                setError('Invalid username or password.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            setError('Error during login.');
+        }
     };
 
-    return(
-        //container
+    return (
+        // Container
         <div className="container-login">
-            {/* formulário */}
+            {/* Form */}
             <form onSubmit={handleSubmit}>
                 <h1>Você por aqui?</h1>
-                {/* email */}
+                {error && <div className="error-message">{error}</div>}
+                
+                {/* Username input */}
                 <div className="input-field">
-                    <input type="email" placeholder="E-mail:" onChange={(e) => setUsername(e.target.value)} required />
-                    <FaUser className="icon"/>
+                    <input
+                        type="text"
+                        placeholder="Nome de usuário"
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
+                    <FaUser className="icon" />
                 </div>
-                {/* senha */}
+                
+                {/* Password input */}
                 <div className="input-field">
-                    <input type="password" placeholder="Senha:" onChange={(e) => setPassword(e.target.value)} required/>
-                    <FaLock className="icon"/>
+                    <input
+                        type="password"
+                        placeholder="Senha"
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <FaLock className="icon" />
                 </div>
-                    {/* botão entar */}
-                    <Link to="/"><button>Entrar</button></Link>
+                
+                {/* Submit button */}
+                <button type="submit">Entrar</button>
 
-                {/* registre-se */}
+                {/* Sign up link */}
                 <div className="signup-link">
-                    <p>Não tem uma conta? <a href="/registro">Registre-se!</a></p>
+                    <p>Não tem uma conta? <Link to="/register">Registre-se!</Link></p>
                 </div>
             </form>
         </div>
