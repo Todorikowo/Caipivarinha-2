@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Account.css";
-import Registro from "../components/Login/Registro";
+import Registro from "../components/Login/Registro.jsx";
 
 function Register(){
     return(

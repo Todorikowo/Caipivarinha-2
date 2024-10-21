@@ -33,15 +33,6 @@ const Login = () => {
                     <input type="password" placeholder="Senha:" onChange={(e) => setPassword(e.target.value)} required/>
                     <FaLock className="icon"/>
                 </div>
-
-                {/* lembre de mim */}
-                <div className="recall-forget">
-                    <label>
-                        <input type="checkbox" />
-                        Lembre de mim
-                    </label>
-                    <a href="#">Esqueceu a senha?</a>
-                </div>
                     {/* botão entar */}
                     <Link to="/"><button>Entrar</button></Link>
 
