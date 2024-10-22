@@ -10,7 +10,7 @@ const PORT = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// MySQL connection
+//  Conexão MySQL
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root', // Replace with your MySQL username
@@ -18,19 +18,20 @@ const db = mysql.createConnection({
     database: 'crud', // Replace with your MySQL database name
 });
 
-// Connect to the database
+// Conecta ao BD
 db.connect((err) => {
     if (err) throw err;
     console.log('MySQL Connected...');
 });
 
-// API endpoint to register a user
+// Endpoint da API para cadastrar usuario
 app.post('/api/register', (req, res) => {
     const { username, password, email } = req.body;
 
-    // Ensure you hash passwords in a real application
+    // Cadastra o usuario na tabela
     const query = 'INSERT INTO users (username, password, email) VALUES (?, ?, ?)';
     
+    //Valida o cadastro
     db.query(query, [username, password, email], (err, result) => {
         if (err) {
             console.error(err);
@@ -40,12 +41,14 @@ app.post('/api/register', (req, res) => {
     });
 });
 
-// API endpoint to login a user
+// Endpoint da api para logar o usuario
 app.post('/api/login', (req, res) => {
     const { username, password } = req.body;
-    
+
+    //acha o usuario na tabela
     const query = 'SELECT * FROM users WHERE username = ? AND password = ?';
     
+    //confirma o login, senão envia erro
     db.query(query, [username, password], (err, results) => {
         if (err) {
             console.error(err);
@@ -63,7 +66,7 @@ app.post('/api/login', (req, res) => {
 });
 
 
-// Start the server
+// Começa o servidor
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Servidor hospedado em: http://localhost:${PORT}`);
 });

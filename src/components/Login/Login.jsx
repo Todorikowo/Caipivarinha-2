@@ -1,20 +1,20 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import "./Login.css";
 import { FaUser, FaLock } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
-    // State variables
+    // Variaveis de estado
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
-    // Handle form submission
+    // impede a pagina de reiniciar ao enviar o formulário
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        //
         try {
             const response = await fetch('http://localhost:5000/api/login', {
                 method: 'POST',
@@ -24,11 +24,12 @@ const Login = () => {
                 body: JSON.stringify({ username, password }),
             });
 
+            //se resposta para o check for ok, avisa sobre login e manda para a home, senão invalida
             if (response.ok) {
                 alert('Login successful!');
-                navigate('/', { replace: true }); // Redirect to the account page
+                navigate('/', { replace: true });
             } else {
-                setError('Invalid username or password.');
+                alert('Invalid username or password.');
             }
         } catch (error) {
             console.error('Error:', error);
@@ -39,12 +40,12 @@ const Login = () => {
     return (
         // Container
         <div className="container-login">
-            {/* Form */}
+            {/* Formulário */}
             <form onSubmit={handleSubmit}>
                 <h1>Você por aqui?</h1>
                 {error && <div className="error-message">{error}</div>}
                 
-                {/* Username input */}
+                {/* Input do nome de usuario */}
                 <div className="input-field">
                     <input
                         type="text"
@@ -55,7 +56,7 @@ const Login = () => {
                     <FaUser className="icon" />
                 </div>
                 
-                {/* Password input */}
+                {/* Input da senha */}
                 <div className="input-field">
                     <input
                         type="password"
@@ -66,12 +67,12 @@ const Login = () => {
                     <FaLock className="icon" />
                 </div>
                 
-                {/* Submit button */}
+                {/* Botçao de enviar */}
                 <button type="submit">Entrar</button>
 
-                {/* Sign up link */}
+                {/* Link para o registro */}
                 <div className="signup-link">
-                    <p>Não tem uma conta? <Link to="/register">Registre-se!</Link></p>
+                    <p>Não tem uma conta? <Link to="/registro">Registre-se!</Link></p>
                 </div>
             </form>
         </div>
