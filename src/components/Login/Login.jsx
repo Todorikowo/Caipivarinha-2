@@ -14,7 +14,7 @@ const Login = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        //
+        //conecta ao BD
         try {
             const response = await fetch('http://localhost:5000/api/login', {
                 method: 'POST',
@@ -67,7 +67,7 @@ const Login = () => {
                     <FaLock className="icon" />
                 </div>
                 
-                {/* Botçao de enviar */}
+                {/* Botão de enviar */}
                 <button type="submit">Entrar</button>
 
                 {/* Link para o registro */}

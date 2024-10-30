@@ -8,6 +8,7 @@ function Provider({ children }) {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [isCartVisible, setIsCartVisible] = useState(false);
+  const [totalPrice] = useState([])
   
   const value = {
     products, 
@@ -15,7 +16,8 @@ function Provider({ children }) {
     cartItems, 
     setCartItems,
     isCartVisible, 
-    setIsCartVisible
+    setIsCartVisible,
+    totalPrice
   };
 // exporta as constantes
   return(

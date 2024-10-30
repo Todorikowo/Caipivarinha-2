@@ -7,6 +7,7 @@ import Carrinho from "./pages/Carrinho";
 import Account from './pages/Account';
 import Register from './pages/Register';
 import  {BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Pay from './pages/Pay';
 
 // função app
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/sobre" exact element={<About />} />
           <Route path="/conta" exact element={<Account />} />
           <Route path="/registro" exact element={<Register />} />
+          {/*WIP <Route path="/pagar" exact element={<Pay />} /> */}
         </Routes>
         {/* footer */}
         <Footer />

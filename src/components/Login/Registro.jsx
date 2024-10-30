@@ -23,7 +23,7 @@ const Registro = () => {
             return;
         }
 
-        //
+        //conecta ao BD
         try {
             const response = await fetch('http://localhost:5000/api/register', {
                 method: 'POST',
@@ -48,6 +48,7 @@ const Registro = () => {
 
     return (
         <div className="container-login">
+            {/* formulário registro */}
             <form onSubmit={handleSubmit}>
                 <h1>E quem é você?</h1>
                 {error && <div className="error-message">{error}</div>}
